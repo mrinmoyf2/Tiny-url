@@ -1,7 +1,9 @@
 const express = require("express");
 const { connectToMongoDB } = require("./connect");
 const urlRoute = require("./routes/url");
+const staticRoute = require("./routes/staticRouter")
 const URL = require("./model/url");
+const path = require("path");
 
 const app = express();
 const PORT = 8001;
@@ -10,10 +12,15 @@ connectToMongoDB("mongodb://localhost:27017/tiny-url").then(() =>
   console.log("Mongodb connected")
 );
 
-//middleware : For parse the incoming body
-app.use(express.json());
+app.set("view engine", "ejs")
+app.set("views", path.resolve("./views"))
+
+app.use(express.json()); // for the json data
+app.use(express.urlencoded({ extended: false })) // for the form data
+
 
 app.use("/url", urlRoute);
+app.use("/", staticRoute)
 
 app.get("/:shortId", async (req, res) => {
   const shortId = req.params.shortId;

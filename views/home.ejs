@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        form{
+            text-align: center;
+            margin: 60px;
+            font-size: 20px;
+        }
+
+        input{
+            width: 40%;
+            height: 35px;
+            margin-left: 10px;
+            border: 2px solid #96D4D4;
+        }
+
+        button{
+            background-color: white; 
+            color: black; 
+            border: 2px solid #96D4D4;
+            height: 42px;
+            width: 7%;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover{
+            background-color: #96D4D4;
+            color: white;
+        }
+
+        table {
+          border-collapse: collapse;
+          width: 100%;
+          margin-top: 20px;
+          table-layout: fixed;
+        }
+        
+        th, td {
+          text-align: center;
+          padding: 8px;
+          border-style:solid;
+          border-color: #96D4D4;
+        }
+
+
+        tr:nth-child(even) {
+          background-color: #D6EEEE;
+        }
+        </style>
+</head>
+<body>
+    <h1>Tiny URL</h1>
+    <% if(locals.id){ %>
+        <a>URL Generated: http://localhost:8001/<%= id %></a>
+    <% } %>
+    <div class="generate-from">
+        <form method="post" action="/url/">
+            <label>Enter your original URL</label>
+            <input type="text" name="url" placeholder="https://example.com">
+            <button type="submit">Generate</button>
+        </form>
+    </div>
+    <div>
+        <% if(locals.urls){ %>
+            <table>
+                <thead>
+                    <th>SL No</th>
+                    <th>ShortID</th>
+                    <th>ShortURL</th>
+                    <th>Redirect</th>
+                    <th>Clicks</th>
+                </thead>
+                <tbody>
+                    <% urls.forEach((url, index) => { %>
+                        <tr>
+                            <td> <%= index + 1 %></td>
+                            <td><%= url.shortId %></td>
+                            <td><a href="http://localhost:8001/<%= url.shortId %>" target="_blank">http://localhost:8001/<%= url.shortId %></a></td>
+                            <td> <%= url.redirectURL %></td>
+                            <td> <%= url.visitHistory.length %></td>
+                        </tr>
+                    <% }) %>
+                    </tbody>
+            </table>
+        <% } %>
+    </div>
+</body>
+</html>
