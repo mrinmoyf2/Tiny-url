@@ -1,3 +1,5 @@
+// this is for the Router set Up
+
 const express = require('express')
 const URL = require('../model/url') 
 
@@ -14,5 +16,8 @@ router.get('/signup', (req, res) => {
     return res.render("signup")
 })
 
+router.get('/login', (req, res) => {
+    return res.render("login")
+})
 
 module.exports = router

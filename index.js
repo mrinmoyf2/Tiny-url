@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false })) // for the form data
 
 app.use("/url", urlRoute)
 app.use("/", staticRoute)
-app.use("/", userRoute)
+app.use("/user", userRoute)
 
 app.get("/:shortId", async (req, res) => {
   const shortId = req.params.shortId;

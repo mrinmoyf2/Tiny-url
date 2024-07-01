@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
+    <title>Login</title>
     <style>
         body {
     display: flex;
@@ -65,15 +65,13 @@ form input[type="submit"]:hover {
 </head>
 <body>
     <div class="container">
-        <h1>Sign up</h1>
-    <form action="/user" method="post">
-        <label for="">Full Name:</label><br>
-        <input type="text" required name="name"><br>
+        <h1>Log in</h1>
+    <form action="/user/login" method="post">
         <label for="">Email:</label><br>
         <input type="text" required name="email"><br><br>
         <label for="">Password:</label><br>
         <input type="password" required name="password"><br><br>
-        <input type="submit" value="Signup">
+        <input type="submit" value="Login">
     </form> 
     </div>
     
