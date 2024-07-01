@@ -6,5 +6,6 @@ Make your URL -> url
 
 ## todos
 
-- implement DELETE url
+- Set cookies session while signup also. When sign up -> home page , don't signup -> login -> home
+- Implement DELETE url
 - If existed URL --> show the existed short url and id
