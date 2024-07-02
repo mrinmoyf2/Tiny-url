@@ -22,10 +22,10 @@ async function handleUserLogin(req , res){
         error: 'Invalid Username or Password'
     })
 
-    const sessionId = uuidv4()
+    // const sessionId = uuidv4()
     // To store this sessionID with this user object , we create a function in service
-    setUser(sessionId, user)
-    res.cookie("uid", sessionId)
+    const token = setUser(user)
+    res.cookie("uid", token)
     return res.redirect('/')
 }
 
