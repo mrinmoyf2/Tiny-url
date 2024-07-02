@@ -20,7 +20,7 @@
         width: 100px;
     }
 
-        h1, a{
+        h1, a, short_url_form{
             text-align: center;
             margin: 0;
         }
@@ -84,7 +84,7 @@
        
     
     <% if(locals.id){ %>
-        <a>URL Generated: http://localhost:8001/<%= id %></a>
+        <a style="text-align: center;">URL Generated: http://localhost:8001/<%= id %></a>
     <% } %>
     <div class="generate_form">
         <form method="post" action="/url/">

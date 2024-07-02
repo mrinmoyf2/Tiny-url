@@ -45,7 +45,7 @@ form input[type="password"] {
     box-sizing: border-box; /* Include padding in width calculation */
 }
 
-form input[type="submit"] {
+form input[type="submit"], button {
     width: 100%;
     padding: 12px;
     border: none;
@@ -55,6 +55,7 @@ form input[type="submit"] {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 2px;
 }
 
 form input[type="submit"]:hover {
@@ -66,6 +67,7 @@ form input[type="submit"]:hover {
 <body>
     <div class="container">
         <h1>Sign up</h1>
+        <hr>
     <form action="/user" method="post">
         <label for="">Full Name:</label><br>
         <input type="text" required name="name"><br>
@@ -74,6 +76,7 @@ form input[type="submit"]:hover {
         <label for="">Password:</label><br>
         <input type="password" required name="password"><br><br>
         <input type="submit" value="Signup">
+        <button type="button" onclick="window.location.href='/login';">login</button>
     </form> 
     </div>
     
