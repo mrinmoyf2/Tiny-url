@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <style>
+        .header {
+    display: flex;
+    justify-content: space-between; /* Aligns items to opposite ends */
+    align-items: center; /* Centers items vertically */
+    margin-top: 20px;
+}
+    .header_name{
+        margin-left: 30px;
+    }
+
+    .logout{
+        margin-right: 50%;
+        width: 100px;
+    }
+
         h1, a{
             text-align: center;
+            margin: 0;
         }
-        form{
+        .generate_form{
             text-align: center;
-            margin: 60px;
+            margin: 80px;
             font-size: 20px;
         }
 
@@ -57,11 +73,20 @@
         </style>
 </head>
 <body>
-    <h1>Tiny URL</h1>
+    <div class="header">
+        <h1 class="header_name">Tiny URL</h1>
+
+        <form action="/user/logout" method="post" class="">
+            <button type="submit" class="logout">Log Out</button>
+        </form>
+
+    </div>
+       
+    
     <% if(locals.id){ %>
         <a>URL Generated: http://localhost:8001/<%= id %></a>
     <% } %>
-    <div class="generate-from">
+    <div class="generate_form">
         <form method="post" action="/url/">
             <label>Enter your original URL</label>
             <input type="text" name="url" placeholder="https://example.com">
