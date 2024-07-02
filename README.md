@@ -6,10 +6,11 @@ Make your URL -> url
 
 ## todos
 
-- Set cookies session while signup also. When sign up -> home page , don't signup -> login -> home
-- Implement DELETE url
-- If existed URL --> show the existed short url and id
-- Implement Role based System 
+- [x] Set cookies session while signup also. When sign up -> home page , don't signup -> login -> home
+- [ ] Add back home button after generate short url
+- [ ] Implement DELETE url
+- [ ] If existed URL --> show the existed short url and id
+- [ ] Implement Role based System  
 
 ### Notes:
 

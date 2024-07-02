@@ -8,6 +8,13 @@ async function handleUserSignup(req , res){
         name, 
         email, 
         password,
+    }).then(async () => {
+        const user = await User.findOne({
+            email,
+            password
+        })
+        const token = setUser(user)
+        res.cookie("uid", token)
     })
     return res.render('home');
 }
